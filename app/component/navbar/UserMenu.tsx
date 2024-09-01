@@ -32,14 +32,15 @@ const UserMenu = () => {
         </div>
       </div>
       {isOpen && (
-        <div className="absolute rounder-xl shadow-md w-[40vw] md:w-3/4 bg-white overflow-hidden right-0 top-12 text-sm"></div>
+        <div className="absolute rounder-xl shadow-md w-[40vw] md:w-3/4 bg-white overflow-hidden right-0 top-12 text-sm">
+          <div className="felx flex-col cursor-pointer">
+            <>
+              <MenuItem onClick={() => {}} label="Login" />
+              <MenuItem onClick={() => {}} label="Sign in" />
+            </>
+          </div>
+        </div>
       )}
-      <div className="felx flex-col cursor-pointer">
-        <>
-          <MenuItem onClick={() => {}} label="Login" />
-          <MenuItem onClick={() => {}} label="Sign in" />
-        </>
-      </div>
     </div>
   );
 };
