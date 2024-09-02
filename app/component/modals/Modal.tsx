@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { IoMdClose } from "react-icons/io";
+import Button from "../Button";
 
 interface ModalProps {
   isOpen?: boolean;
@@ -13,7 +14,7 @@ interface ModalProps {
   actionLabel: string;
   disable?: boolean;
   secondaryAction?: () => void;
-  secondaryLabel?: string;
+  secondaryActionLabel?: string;
 }
 
 const Modal: React.FC<ModalProps> = ({
@@ -26,7 +27,7 @@ const Modal: React.FC<ModalProps> = ({
   actionLabel,
   disable,
   secondaryAction,
-  secondaryLabel,
+  secondaryActionLabel,
 }) => {
   const [showModal, setShowModal] = useState(isOpen);
 
@@ -81,9 +82,33 @@ const Modal: React.FC<ModalProps> = ({
             <div className="translate h-full lg:h-auto md:h-auto border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
               {/* {헤더 파트} */}
               <div className="flex items-center p-6 rounded-t justify-center relative border-b-[1px]">
-                <button className="p-1 border-0 hover:opacity-70 transition absolute left-9">
+                <button
+                  onClick={handleClose}
+                  className="p-1 border-0 hover:opacity-70 transition absolute left-9"
+                >
                   <IoMdClose size={18} />
                 </button>
+                <div className="text-lg font-semibold">{title}</div>
+              </div>
+              {/* {바디 파트} */}
+              <div className="relative p-6 flex-auto">{body}</div>
+              {/* {푸터 파트} */}
+              <div className="flex flex-col gap-2 p-6">
+                <div className="flex flex-row items-center gap-4 w-full">
+                  {secondaryAction && secondaryActionLabel && (
+                    <Button
+                      outlined
+                      disable={disable}
+                      label={secondaryActionLabel}
+                      onClick={handleSecondaryAction}
+                    />
+                  )}
+                  <Button
+                    disable={disable}
+                    label={actionLabel}
+                    onClick={handleSubmit}
+                  />
+                </div>
               </div>
             </div>
           </div>
