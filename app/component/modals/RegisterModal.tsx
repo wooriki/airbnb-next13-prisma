@@ -82,7 +82,7 @@ const RegisterModal = () => {
     <div className="flex flex-col gap-4 mt-3">
       <hr />
       <Button
-        outline
+        outlined
         label="구글 계정으로 계속"
         icon={FcGoogle}
         onClick={() => {}}
