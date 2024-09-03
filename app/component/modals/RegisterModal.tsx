@@ -9,6 +9,8 @@ import useRegisterModal from "@/app/hook/useRegisterModal";
 import Modal from "./Modal";
 import Heading from "../Heading";
 import Input from "../inputs/Input";
+import toast from "react-hot-toast";
+import Button from "../Button";
 
 const RegisterModal = () => {
   const registerModal = useRegisterModal();
@@ -35,7 +37,7 @@ const RegisterModal = () => {
         registerModal.onClose();
       })
       .catch((error) => {
-        console.log(error);
+        toast.error("문제가 발생했습니다");
       })
       .finally(() => {
         setIsLoading(false);
@@ -48,10 +50,45 @@ const RegisterModal = () => {
         title="AirBnb에 오신걸 환영합니다."
         subtitle="계정을 생성해 주세요."
       />
-      <Input />
+      <Input
+        id="email"
+        label="Email"
+        disabled={isLoading}
+        register={register}
+        errors={errors}
+        required
+      />
+      <Input
+        id="name"
+        label="성함"
+        disabled={isLoading}
+        register={register}
+        errors={errors}
+        required
+      />
+      <Input
+        id="password"
+        type="password"
+        label="비밀번호"
+        disabled={isLoading}
+        register={register}
+        errors={errors}
+        required
+      />
     </div>
   );
 
+  const footerContent = (
+    <div className="flex flex-col gap-4 mt-3">
+      <hr />
+      <Button
+        outline
+        label="구글 계정으로 계속"
+        icon={FcGoogle}
+        onClick={() => {}}
+      />
+    </div>
+  );
   return (
     <Modal
       disable={isLoading}
@@ -61,6 +98,7 @@ const RegisterModal = () => {
       onClose={registerModal.onClose}
       onSubmit={handleSubmit(onSubmit)}
       body={bodyContent}
+      footer={footerContent}
     />
   );
 };
