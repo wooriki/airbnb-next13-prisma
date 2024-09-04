@@ -12,11 +12,11 @@ export const authOptions: AuthOptions = {
   providers: [
     GithubProvider({
       clientId: process.env.GITHUB_ID as string,
-      clientSecret: process.env.GITHUB_SECERET as string,
+      clientSecret: process.env.GITHUB_SECRET as string,
     }),
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID as string,
-      clientSecret: process.env.GOOGLE_CLIENT_SECERET as string,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
     }),
     CredentailsProvider({
       name: "credentials",
@@ -56,7 +56,7 @@ export const authOptions: AuthOptions = {
   session: {
     strategy: "jwt",
   },
-  secret: process.env.NEXTAUTH_SECERET,
+  secret: process.env.NEXTAUTH_SECRET,
 };
 
 export default NextAuth(authOptions);
