@@ -1,11 +1,16 @@
 "use client";
 
+import { signIn } from "next-auth/react";
 import axios from "axios";
+
 import { AiFillGithub } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
 import { useCallback, useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+
 import useRegisterModal from "@/app/hook/useRegisterModal";
+import useLoginModal from "@/app/hook/useLoginModal";
+
 import Modal from "./Modal";
 import Heading from "../Heading";
 import Input from "../inputs/Input";
@@ -14,6 +19,7 @@ import Button from "../Button";
 
 const LoginModal = () => {
   const registerModal = useRegisterModal();
+  const loginModal = useLoginModal();
   const [isLoading, setIsLoading] = useState(false);
 
   const {
@@ -22,7 +28,6 @@ const LoginModal = () => {
     formState: { errors },
   } = useForm<FieldValues>({
     defaultValues: {
-      name: "",
       email: "",
       password: "",
     },
@@ -47,20 +52,12 @@ const LoginModal = () => {
   const bodyContent = (
     <div className="flex flex-col gap-4">
       <Heading
-        title="AirBnb에 오신걸 환영합니다."
-        subtitle="계정을 생성해 주세요."
+        title="방문을 환영합니다."
+        subtitle="계정으로 로그인 해주세요."
       />
       <Input
         id="email"
         label="Email"
-        disabled={isLoading}
-        register={register}
-        errors={errors}
-        required
-      />
-      <Input
-        id="name"
-        label="성함"
         disabled={isLoading}
         register={register}
         errors={errors}
@@ -109,10 +106,10 @@ const LoginModal = () => {
   return (
     <Modal
       disable={isLoading}
-      isOpen={registerModal.isOpen}
-      title="등록하기"
+      isOpen={loginModal.isOpen}
+      title="로그인"
       actionLabel="다음으로"
-      onClose={registerModal.onClose}
+      onClose={loginModal.onClose}
       onSubmit={handleSubmit(onSubmit)}
       body={bodyContent}
       footer={footerContent}

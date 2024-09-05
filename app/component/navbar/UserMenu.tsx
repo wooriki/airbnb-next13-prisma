@@ -4,10 +4,14 @@ import { AiOutlineMenu } from "react-icons/ai";
 import Avatar from "../Avatar";
 import { useCallback, useState } from "react";
 import MenuItem from "./MenuItem";
+
 import useRegisterModal from "@/app/hook/useRegisterModal";
+import useLoginModal from "@/app/hook/useLoginModal";
 
 const UserMenu = () => {
   const registerModal = useRegisterModal();
+  const loginModal = useLoginModal();
+
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleOpen = useCallback(() => {
@@ -37,7 +41,7 @@ const UserMenu = () => {
         <div className="absolute rounder-xl shadow-md w-[40vw] md:w-3/4 bg-white overflow-hidden right-0 top-12 text-sm">
           <div className="felx flex-col cursor-pointer">
             <>
-              <MenuItem onClick={() => {}} label="로그인" />
+              <MenuItem onClick={loginModal.onOpen} label="로그인" />
               <MenuItem onClick={registerModal.onOpen} label="가입하기" />
             </>
           </div>
