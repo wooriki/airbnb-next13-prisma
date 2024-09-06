@@ -16,12 +16,14 @@ import Heading from "../Heading";
 import Input from "../inputs/Input";
 import toast from "react-hot-toast";
 import Button from "../Button";
+import { useRouter } from "next/navigation";
 
 const LoginModal = () => {
   const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
   const [isLoading, setIsLoading] = useState(false);
 
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -36,17 +38,19 @@ const LoginModal = () => {
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     setIsLoading(true);
 
-    axios
-      .post("/api/register", data)
-      .then(() => {
-        registerModal.onClose();
-      })
-      .catch((error) => {
-        toast.error("문제가 발생했습니다");
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
+    signIn("credentials", {
+      ...data,
+      redirect: false,
+    }).then((callback) => {
+      setIsLoading(false);
+
+      if (callback?.ok) {
+        toast.success("로그인 하셨습니다.");
+
+        router.refresh();
+        loginModal.onClose();
+      }
+    });
   };
 
   const bodyContent = (
