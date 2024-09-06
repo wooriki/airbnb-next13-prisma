@@ -7,8 +7,14 @@ import MenuItem from "./MenuItem";
 
 import useRegisterModal from "@/app/hook/useRegisterModal";
 import useLoginModal from "@/app/hook/useLoginModal";
+import { User } from "@prisma/client";
+import { signOut } from "next-auth/react";
 
-const UserMenu = () => {
+interface UserMenuProps {
+  currentUser?: User | null;
+}
+
+const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
   const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
 
@@ -40,10 +46,22 @@ const UserMenu = () => {
       {isOpen && (
         <div className="absolute rounder-xl shadow-md w-[40vw] md:w-3/4 bg-white overflow-hidden right-0 top-12 text-sm">
           <div className="felx flex-col cursor-pointer">
-            <>
-              <MenuItem onClick={loginModal.onOpen} label="로그인" />
-              <MenuItem onClick={registerModal.onOpen} label="가입하기" />
-            </>
+            {currentUser ? (
+              <>
+                <MenuItem onClick={() => {}} label="나의 여행지" />
+                <MenuItem onClick={() => {}} label="나의 최애" />
+                <MenuItem onClick={() => {}} label="나의 예약" />
+                <MenuItem onClick={() => {}} label="나의 특징" />
+                <MenuItem onClick={() => {}} label="Airbnb 나의 홈" />
+                <hr />
+                <MenuItem onClick={() => signOut()} label="로그아웃" />
+              </>
+            ) : (
+              <>
+                <MenuItem onClick={loginModal.onOpen} label="로그인" />
+                <MenuItem onClick={registerModal.onOpen} label="가입하기" />
+              </>
+            )}
           </div>
         </div>
       )}
