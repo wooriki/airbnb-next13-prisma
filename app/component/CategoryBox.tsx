@@ -43,10 +43,11 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
     );
 
     router.push(url);
-  }, []);
+  }, [label, params, router]);
 
   return (
     <div
+      onClick={handleClick}
       className={`flex flex-col justify-center gap-2 p-3 border-b-2 hover:text-neutral-800 transition cursor-pointer
         ${
           selected
