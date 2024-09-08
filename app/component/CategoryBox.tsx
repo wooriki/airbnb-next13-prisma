@@ -34,7 +34,7 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
       delete updatedQuery.category;
     }
 
-    const url = qs.stringify(
+    const url = qs.stringifyUrl(
       {
         url: "/",
         query: updatedQuery,
