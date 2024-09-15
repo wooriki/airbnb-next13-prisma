@@ -7,7 +7,7 @@ import MenuItem from "./MenuItem";
 
 import useRegisterModal from "@/app/hook/useRegisterModal";
 import useLoginModal from "@/app/hook/useLoginModal";
-import useRentModal from "@/app/hook/useLoginModal";
+import useRentModal from "@/app/hook/useRentModal";
 
 import { SafeUser } from "@/app/types";
 import { signOut } from "next-auth/react";

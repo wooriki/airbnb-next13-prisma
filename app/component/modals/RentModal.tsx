@@ -1,6 +1,6 @@
 "use client";
 
-import useRentModal from "@/app/hook/useLoginModal";
+import useRentModal from "@/app/hook/useRentModal";
 import Modal from "./Modal";
 
 const RentModal = () => {
