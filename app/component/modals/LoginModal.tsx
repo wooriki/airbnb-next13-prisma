@@ -1,7 +1,6 @@
 "use client";
 
 import { signIn } from "next-auth/react";
-import axios from "axios";
 
 import { AiFillGithub } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
@@ -56,6 +55,11 @@ const LoginModal = () => {
     });
   };
 
+  const toggle = useCallback(() => {
+    loginModal.onClose();
+    registerModal.onOpen();
+  }, [loginModal, registerModal]);
+
   const bodyContent = (
     <div className="flex flex-col gap-4">
       <Heading
@@ -99,12 +103,12 @@ const LoginModal = () => {
       />
       <div className=" text-neutral-500 text-center  mt-4 font-light">
         <div className="flex flex-row items-center justify-center  gap-2">
-          <p className="">이미 계정이 있으신가요?</p>
+          <p className="">Airbnb 방문이 처음이신가요?</p>
           <div
-            onClick={registerModal.onClose}
+            onClick={toggle}
             className="text-neutral-800 cursor-pointer hover:underline"
           >
-            로그인
+            계정 생성하기
           </div>
         </div>
       </div>
