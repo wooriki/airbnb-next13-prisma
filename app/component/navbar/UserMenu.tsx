@@ -63,7 +63,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                 <MenuItem onClick={() => {}} label="나의 최애" />
                 <MenuItem onClick={() => {}} label="나의 예약" />
                 <MenuItem onClick={() => {}} label="나의 특징" />
-                <MenuItem onClick={() => {}} label="Airbnb 나의 홈" />
+                <MenuItem onClick={rentModal.onOpen} label="Airbnb 나의 홈" />
                 <hr />
                 <MenuItem onClick={() => signOut()} label="로그아웃" />
               </>

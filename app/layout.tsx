@@ -4,11 +4,11 @@ import "./globals.css";
 
 import Navbar from "./component/navbar/Navbar";
 import ClientOnly from "./component/ClientOnly";
-import RegisterModal from "./component/modals/RegisterModal";
 import ToasterProvider from "./providers/ToasterProvider";
+import getCurrentUser from "./actions/getCurrentUser";
 
 import LoginModal from "./component/modals/LoginModal";
-import getCurrentUser from "./actions/getCurrentUser";
+import RegisterModal from "./component/modals/RegisterModal";
 import RentModal from "./component/modals/RentModal";
 
 export const metadata = {
