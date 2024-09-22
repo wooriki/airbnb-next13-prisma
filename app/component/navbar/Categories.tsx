@@ -21,77 +21,77 @@ import { IoDiamond } from "react-icons/io5";
 
 export const categories = [
   {
-    label: "Beach",
+    label: "바닷가",
     icon: TbBeach,
     descripiton: "This property is close to Beach!",
   },
   {
-    label: "WindMills",
+    label: "풍차",
     icon: GiWindmill,
     descripiton: "This property has windmills!",
   },
   {
-    label: "Modern",
+    label: "현대식",
     icon: MdOutlineVilla,
     descripiton: "This property is modern",
   },
   {
-    label: "Countryside",
+    label: "고향느낌",
     icon: TbMountain,
     descripiton: "This property is in the countryside!",
   },
   {
-    label: "Pools",
+    label: "수영장",
     icon: TbPool,
     descripiton: "This property has a pool!",
   },
   {
-    label: "Islands",
+    label: "섬 여행",
     icon: GiIsland,
     descripiton: "This property is on an island!",
   },
   {
-    label: "Lake",
+    label: "호수",
     icon: GiBoatFishing,
     descripiton: "This property is close to a lake!",
   },
   {
-    label: "Skiing",
+    label: "스키",
     icon: FaSkiing,
     descripiton: "This property is has skiing activities!",
   },
   {
-    label: "Castles",
+    label: "성곽 주변",
     icon: GiCastle,
     descripiton: "This property is in a castle!",
   },
   {
-    label: "Camping",
+    label: "캠핑",
     icon: GiForestCamp,
     descripiton: "This property has camping activities!",
   },
   {
-    label: "Arctic",
+    label: "설산",
     icon: BsSnow,
     descripiton: "This property has camping activities!",
   },
   {
-    label: "Cave",
+    label: "동굴",
     icon: GiCaveEntrance,
     descripiton: "This property is in a cave!",
   },
   {
-    label: "Desert",
+    label: "사막",
     icon: GiCactus,
     descripiton: "This property is in a desert!",
   },
   {
-    label: "Barns",
+    label: "헛간",
     icon: GiBarn,
     descripiton: "This property is in the barn!",
   },
   {
-    label: "Lux",
+    label: "광물",
     icon: IoDiamond,
     descripiton: "This property is luxurious!",
   },
